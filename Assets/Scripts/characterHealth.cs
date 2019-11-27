@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class characterHealth : MonoBehaviour
 {
 	public float MaxHealth{get; set;}
 	public float CurrentHealth{get; set;}
+	public Color healthy = new Color(35f/255f, 164f/255f, 42f/255f);
+	public Color injured = new Color(35f/255f, 164f/255f, 42f/255f);
+	public Color critical = new Color(35f/255f, 164f/255f, 42f/255f);
 
-	public UnityEngine.UI.Slider healthBar;
+	public Slider healthBar;
+	public Image fill;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +20,7 @@ public class characterHealth : MonoBehaviour
 		MaxHealth = 20f;
 		CurrentHealth = MaxHealth;
 		healthBar.value = CalculateHealth();
+		fill.color = healthy;
     }
 
     // Update is called once per frame
@@ -27,6 +33,7 @@ public class characterHealth : MonoBehaviour
 	void DealDamage(float damageValue){
 		CurrentHealth -= damageValue;
 		healthBar.value = CalculateHealth();
+		UpdateColor();
 
 		if(CurrentHealth <= 0)
 			Die();
@@ -34,6 +41,14 @@ public class characterHealth : MonoBehaviour
 
 	float CalculateHealth(){
 		return CurrentHealth / MaxHealth;
+	}
+	void UpdateColor(){
+		if(healthBar.value > 0.50f)
+			fill.color = healthy;
+		if(healthBar.value <= 0.50f)
+			fill.color = injured;
+		if(healthBar.value < 0.25f)
+			fill.color = critical;
 	}
 
 	void Die(){

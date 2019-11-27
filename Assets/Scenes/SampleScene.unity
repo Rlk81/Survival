@@ -174,7 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df025ef40e29ef4c8b3861844b62bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthy: {r: 0.13725491, g: 0.6431373, b: 0.16470589, a: 1}
+  injured: {r: 0.9056604, g: 0.8770196, b: 0.252047, a: 1}
+  critical: {r: 0.7264151, g: 0.21839374, b: 0.2021627, a: 1}
   healthBar: {fileID: 1373201489}
+  fill: {fileID: 1906230075}
 --- !u!43 &459809412
 Mesh:
   m_ObjectHideFlags: 0
