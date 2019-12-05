@@ -8,9 +8,7 @@ As far as YOU, an employee of SCAMlabs, can tell, are the last remaining survivo
 you are now the only thing in between the living and the inevitable take over of the undead.
 
 Rules are simple: Survive against waves of approaching zombies for as long as possible
-
 Map: Inside SCAMlabs, multiple rooms including an aircraft carrier.
-
 Controls: AWSD or arrows for movement, curser and mouseclick to aim and fire weapon, spacebar to jump
 
 ![alt text](https://github.com/cs4381-Game-Development-Group-3/Survival/issues/2)
