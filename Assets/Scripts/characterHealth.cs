@@ -13,6 +13,9 @@ public class characterHealth : MonoBehaviour
 
 	public Slider healthBar;
 	public Image fill;
+	public float damageCooldown=2;
+	private float invincibilityEnd;
+	public int zombieDamage = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,14 @@ public class characterHealth : MonoBehaviour
     {
 		if(Input.GetKeyDown(KeyCode.X))
 			DealDamage(6);
+		
+	}
+
+	void OnTriggerEnter(Collider collision){
+		if((collision.gameObject.tag == "zombie") && (Time.time > invincibilityEnd)){
+			DealDamage(zombieDamage);
+			invincibilityEnd = Time.time+damageCooldown;
+		}
 	}
 
 	void DealDamage(float damageValue){
