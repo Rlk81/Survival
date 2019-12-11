@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class characterHealth : MonoBehaviour
 {
@@ -63,7 +64,11 @@ public class characterHealth : MonoBehaviour
 	}
 
 	void Die(){
+		Cursor.lockState = CursorLockMode.None;
 		CurrentHealth = 0;
+		Cursor.visible = true;
 		Debug.Log("You died.");
+		SceneManager.LoadScene("Assets/Scenes/startMenu.unity");
+		Cursor.lockState = CursorLockMode.None;
 	}
 }
